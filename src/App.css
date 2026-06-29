@@ -1,562 +1,89 @@
-:root {
-  color: #172033;
-  background: #f4f7fb;
-  font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-}
-
-button,
-input,
-select,
-textarea {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-.app {
-  --accent: #246bfe;
-  --accent-2: #18a37a;
-  --accent-3: #f3a21b;
-  --ink: #172033;
-  --muted: #667085;
-  --line: #dce3ee;
-  --panel: rgba(255, 255, 255, 0.92);
+.atlaslog-app {
+  background: #eef3f8;
   min-height: 100vh;
-  background:
-    linear-gradient(115deg, rgba(36, 107, 254, 0.1), transparent 38%),
-    linear-gradient(245deg, rgba(24, 163, 122, 0.12), transparent 42%),
-    #f4f7fb;
 }
 
-.app-shell {
-  width: min(1420px, calc(100% - 32px));
-  margin: 0 auto;
-  padding: 20px 0 32px;
-}
-
-.topbar {
-  align-items: center;
-  display: flex;
-  gap: 18px;
+.atlaslog-toolbar {
+  gap: 16px;
   justify-content: space-between;
-  margin-bottom: 18px;
 }
 
-.brand {
-  align-items: center;
-  display: flex;
-  gap: 12px;
+.atlaslog-shell {
+  padding-bottom: 40px;
+  padding-top: 28px;
 }
 
-.brand-mark {
-  align-items: center;
-  background: var(--ink);
-  border-radius: 8px;
-  color: #fff;
-  display: inline-flex;
-  height: 42px;
-  justify-content: center;
-  width: 42px;
+.atlaslog-hero {
+  align-items: flex-end;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(340px, 0.9fr);
+  margin-bottom: 24px;
 }
 
-.brand p,
-.hero-copy p,
-.metric p,
-.panel-title p,
-.muted {
-  color: var(--muted);
+.atlaslog-hero h2 {
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 0.95;
+  margin: 8px 0 14px;
+  max-width: 900px;
 }
 
-.brand h1,
-.brand p,
-.hero-copy h2,
-.hero-copy p,
-.metric h3,
-.metric p,
-.panel-title h2,
-.panel-title p {
-  margin: 0;
-}
-
-.brand h1 {
-  font-size: 20px;
-  line-height: 1.1;
-}
-
-.brand p {
-  font-size: 13px;
-}
-
-.toolbar {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+.atlaslog-summary {
   justify-content: flex-end;
 }
 
-.icon-button,
-.action-button,
-.ghost-button,
-.filter-pill,
-.tab-button {
-  align-items: center;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  display: inline-flex;
-  gap: 8px;
-  justify-content: center;
-  min-height: 38px;
+.atlaslog-summary .MuiCard-root {
+  min-width: 128px;
 }
 
-.icon-button {
-  background: #fff;
-  color: var(--ink);
-  padding: 0;
-  width: 40px;
-}
-
-.action-button {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
-  padding: 0 14px;
-}
-
-.ghost-button {
-  background: #fff;
-  color: var(--ink);
-  padding: 0 12px;
-}
-
-.hero-grid {
+.atlaslog-grid {
   display: grid;
-  gap: 18px;
-  grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.55fr);
-  margin-bottom: 18px;
+  gap: 20px;
+  grid-template-columns: minmax(280px, 0.7fr) minmax(420px, 1.4fr) minmax(300px, 0.8fr);
 }
 
-.hero-copy,
-.panel,
-.metric,
-.command-stack {
-  background: var(--panel);
-  border: 1px solid rgba(220, 227, 238, 0.86);
-  border-radius: 8px;
-  box-shadow: 0 18px 52px rgba(23, 32, 51, 0.08);
-}
-
-.hero-copy {
-  padding: 26px;
-}
-
-.eyebrow {
-  color: var(--accent);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
-
-.hero-copy h2 {
-  color: var(--ink);
-  font-size: clamp(32px, 5vw, 56px);
-  line-height: 1;
-  max-width: 820px;
-}
-
-.hero-copy p {
-  font-size: 16px;
-  line-height: 1.65;
-  margin-top: 14px;
-  max-width: 760px;
-}
-
-.command-stack {
-  display: grid;
-  gap: 10px;
-  padding: 18px;
-}
-
-.command-stack .action-button,
-.command-stack .ghost-button {
-  justify-content: flex-start;
-  min-height: 46px;
-  width: 100%;
-}
-
-.stats-grid {
-  display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin-bottom: 18px;
-}
-
-.metric {
-  padding: 18px;
-}
-
-.metric-icon {
-  align-items: center;
-  background: color-mix(in srgb, var(--accent) 12%, white);
-  border-radius: 8px;
-  color: var(--accent);
-  display: inline-flex;
-  height: 38px;
-  justify-content: center;
-  margin-bottom: 14px;
-  width: 38px;
-}
-
-.metric h3 {
-  font-size: clamp(22px, 3vw, 34px);
-  line-height: 1.08;
-}
-
-.metric p {
-  font-size: 13px;
-  margin-top: 6px;
-}
-
-.workspace-grid {
-  display: grid;
-  gap: 18px;
-  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
-}
-
-.panel {
-  min-width: 0;
-  padding: 18px;
-}
-
-.panel-title {
-  align-items: flex-start;
-  display: flex;
-  gap: 12px;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
-.panel-title h2 {
-  font-size: 19px;
-}
-
-.panel-title p {
-  font-size: 13px;
-  margin-top: 4px;
-}
-
-.filter-row,
-.tab-row,
-.search-row {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 14px;
-}
-
-.filter-pill,
-.tab-button {
-  background: #fff;
-  color: var(--muted);
-  padding: 8px 12px;
-}
-
-.filter-pill.active,
-.tab-button.active {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: #fff;
-}
-
-.search-box {
-  align-items: center;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  display: flex;
-  flex: 1 1 260px;
-  gap: 8px;
-  min-height: 42px;
-  padding: 0 12px;
-}
-
-.search-box input {
-  background: transparent;
-  border: 0;
-  color: var(--ink);
-  min-width: 0;
-  outline: 0;
-  width: 100%;
-}
-
-.data-table {
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  overflow: auto;
-}
-
-.data-table table {
-  border-collapse: collapse;
-  min-width: 720px;
-  width: 100%;
-}
-
-.data-table th,
-.data-table td {
-  border-bottom: 1px solid var(--line);
-  padding: 13px 14px;
-  text-align: left;
-  vertical-align: top;
-}
-
-.data-table th {
-  background: #f7f9fd;
-  color: #475467;
-  font-size: 12px;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.data-table tr:last-child td {
-  border-bottom: 0;
-}
-
-.row-button {
-  background: transparent;
-  border: 0;
-  color: inherit;
-  padding: 0;
-  text-align: left;
-}
-
-.strong {
-  color: var(--ink);
-  font-weight: 800;
-}
-
-.status {
-  align-items: center;
-  border-radius: 999px;
-  display: inline-flex;
-  font-size: 12px;
-  font-weight: 800;
-  gap: 6px;
-  padding: 5px 9px;
-  white-space: nowrap;
-}
-
-.status.good {
-  background: #eaf8f1;
-  color: #067647;
-}
-
-.status.warn {
-  background: #fff4df;
-  color: #b54708;
-}
-
-.status.bad {
-  background: #fef0f0;
-  color: #b42318;
-}
-
-.status.info {
-  background: #edf4ff;
-  color: #175cd3;
-}
-
-.detail-stack {
-  display: grid;
-  gap: 12px;
-}
-
-.detail-row,
-.timeline-row,
-.message-row,
-.review-row,
-.inventory-row,
-.trip-row {
-  border-bottom: 1px solid var(--line);
-  display: grid;
-  gap: 8px;
-  padding: 12px 0;
-}
-
-.detail-row:first-child,
-.timeline-row:first-child,
-.message-row:first-child,
-.review-row:first-child,
-.inventory-row:first-child,
-.trip-row:first-child {
-  padding-top: 0;
-}
-
-.detail-row:last-child,
-.timeline-row:last-child,
-.message-row:last-child,
-.review-row:last-child,
-.inventory-row:last-child,
-.trip-row:last-child {
-  border-bottom: 0;
-  padding-bottom: 0;
-}
-
-.split-row {
-  align-items: center;
-  display: flex;
-  gap: 10px;
-  justify-content: space-between;
-}
-
-.progress {
-  background: #e8edf5;
-  border-radius: 999px;
-  height: 8px;
+.atlaslog-map-card {
+  min-height: 620px;
   overflow: hidden;
 }
 
-.progress span {
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  display: block;
+.atlaslog-map {
   height: 100%;
+  min-height: 620px;
+  width: 100%;
 }
 
-.mini-grid {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.mini-stat {
-  background: #f7f9fd;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 12px;
-}
-
-.mini-stat p,
-.mini-stat strong {
-  display: block;
-}
-
-.mini-stat p {
-  color: var(--muted);
-  font-size: 12px;
-  margin: 0 0 4px;
-}
-
-.mini-stat strong {
-  color: var(--ink);
-  font-size: 18px;
-}
-
-.map-surface,
-.chart-surface {
-  background:
-    linear-gradient(90deg, rgba(23, 32, 51, 0.06) 1px, transparent 1px),
-    linear-gradient(rgba(23, 32, 51, 0.06) 1px, transparent 1px), #f8fbff;
-  background-size: 28px 28px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  min-height: 230px;
-  overflow: hidden;
-  position: relative;
-}
-
-.route-pin {
-  align-items: center;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  box-shadow: 0 10px 24px rgba(23, 32, 51, 0.12);
-  color: var(--ink);
-  display: inline-flex;
-  font-size: 12px;
-  font-weight: 800;
-  gap: 5px;
-  max-width: 44%;
-  overflow: hidden;
-  padding: 6px 9px;
-  position: absolute;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.chart-bars {
-  align-items: end;
-  bottom: 18px;
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(8, 1fr);
-  left: 18px;
-  position: absolute;
-  right: 18px;
-  top: 24px;
-}
-
-.chart-bars span {
-  background: linear-gradient(180deg, var(--accent), var(--accent-2));
-  border-radius: 6px 6px 0 0;
-  min-height: 18px;
-}
-
-@media (max-width: 980px) {
-  .hero-grid,
-  .workspace-grid {
+@media (max-width: 1180px) {
+  .atlaslog-hero,
+  .atlaslog-grid {
     grid-template-columns: 1fr;
   }
 
-  .stats-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .atlaslog-summary {
+    justify-content: flex-start;
   }
 }
 
-@media (max-width: 640px) {
-  .app-shell {
-    width: min(100% - 20px, 1420px);
-    padding-top: 12px;
-  }
-
-  .topbar,
-  .panel-title {
+@media (max-width: 720px) {
+  .atlaslog-toolbar {
     align-items: stretch;
     flex-direction: column;
   }
 
-  .toolbar,
-  .panel-title .toolbar {
-    justify-content: flex-start;
+  .atlaslog-actions.MuiStack-root,
+  .atlaslog-summary.MuiStack-root {
+    align-items: stretch;
+    flex-direction: column !important;
   }
 
-  .hero-copy,
-  .panel,
-  .metric,
-  .command-stack {
-    padding: 14px;
+  .atlaslog-summary .MuiCard-root {
+    width: 100%;
   }
 
-  .stats-grid,
-  .mini-grid {
-    grid-template-columns: 1fr;
+  .atlaslog-map,
+  .atlaslog-map-card {
+    min-height: 420px;
   }
 }
